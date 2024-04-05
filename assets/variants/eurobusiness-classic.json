@@ -1,0 +1,150 @@
+{
+    "properties": {
+        "Grecja": {
+            "color": "yellow",
+            "cities": {
+                "Saloniki": 120,
+                "Ateny": 120
+            }
+        },
+        "Włochy": {
+            "color": "red",
+            "cities": {
+                "Neapol": 200,
+                "Mediolan": 200,
+                "Rzym": 240
+            }
+        },
+        "Hiszpania": {
+            "color": "blue",
+            "cities": {
+                "Barcelona": 280,
+                "Sewilla": 280,
+                "Madryt": 320
+            }
+        },
+        "Anglia": {
+            "color": "orange",
+            "cities": {
+                "Liverpool": 360,
+                "Glasgow": 360,
+                "Londyn": 400
+            }
+        },
+        "Benelux": {
+            "color": "green",
+            "cities": {
+                "Rotterdam": 440,
+                "Bruksela": 440,
+                "Amsterdam": 480
+            }
+        },
+        "Szwecja": {
+            "color": "purple",
+            "cities": {
+                "Malmo": 520,
+                "Goteborg": 520,
+                "Sztokholm": 560
+            }
+        },
+        "RFN": {
+            "color": "brown",
+            "cities": {
+                "Frankfurt": 600,
+                "Kolonia": 600,
+                "Bonn": 640
+            }
+        },
+        "Austria": {
+            "color": "black",
+            "cities": {
+                "Innsbruck": 700,
+                "Wiedeń": 800
+            }
+        },
+        "middlePieces": {
+            "color": "none",
+            "cities": {
+                "Południowe": 400,
+                "Zachodnie": 400,
+                "Północne": 400,
+                "Wschodnie": 400
+            }
+        },
+        "theDuo": {
+            "color": "none",
+            "cities": {
+                "Elektrownia atomowa": 300,
+                "Sieć wodociągowa": 300
+            }
+        },
+        "specialFields": {
+            "color": "none",
+            "cities": {
+                "Parking strzeżony": 400,
+                "Podatek od wzbogacenia": 200
+            }
+        }
+    },
+    "cards": {
+        "blue": {
+            "get": {
+                "Omyłka banku": 400,
+                "Konkurs piękności": 200,
+                "Zwrot podatku": 40,
+                "Odsetki kapitału": 50,
+                "Rabat z magazynu": 20,
+                "Spadek": 200,
+                "Roczna renta": 200,
+                "Urodziny": {
+                    "amount": 20,
+                    "instructions": "from each player"
+                }
+            },
+            "pay": {
+                "Składka ubezpieczeniowa": 20,
+                "Budowa szpitala": 400,
+                "Karta lub szansa": 20,
+                "Leczenia": 20
+            },
+            "other": {
+                "Wracasz do Wiednia": 0,
+                "Wracasz na start": 0,
+                "Wychodzisz z więzienia": 0,
+                "Idziesz do więzienia": 0
+            }
+        },
+        "red": {
+            "get": {
+                "Procenty": 100,
+                "Odsetki": 300,
+                "Rozwiązanie krzyżówki": 200
+            },
+            "pay": {
+                "Modernizacja": {
+                    "amount1": 80,
+                    "amount2": 230,
+                    "instructions": "for each house and hotel"
+                },
+                "Remont": {
+                    "amount1": 50,
+                    "amount2": 200,
+                    "instructions": "for each house and hotel"
+                },
+                "Mandat za szybką jazdę": 30,
+                "Picie w pracy": 40,
+                "Opłata za szkołę": 300
+            }
+        },
+        "other": {
+            "Wychodzisz z więzienia": 0,
+            "Idziesz do więzienia": 0,
+            "Cofasz się o 3 pola": 0,
+            "Wracasz do Brukseli": 400,
+            "Wracasz do Madrytu": 0,
+            "Wracasz na start": 0,
+            "Idziesz do Neapolu": 400,
+            "Idziesz do Kolei Wschodnich": 400
+        }
+    }
+}
