@@ -224,12 +224,12 @@
             "Wracasz do Wiednia": {
                 "action": "goto",
                 "destination": "Wiedeń",
-                "start bonus": false
+                "startBonus": false
             },
             "Wracasz na start": {
                 "action": "goto",
                 "destination": "start",
-                "start bonus": false
+                "startBonus": false
             },
             "Wychodzisz z więzienia": {
                 "action": "jail leave"
@@ -293,32 +293,33 @@
             },
             "Cofasz się o 3 pola": {
                 "action": "move",
-                "distance": -3
+                "distance": -3,
+                "startBonus": true
             },
             "Wracasz do Brukseli": {
                 "action": "goto",
                 "destination": "Bruksela",
-                "start bonus": true
+                "startBonus": true
             },
             "Wracasz do Madrytu": {
                 "action": "goto",
                 "destination": "Madryt",
-                "start bonus": false
+                "startBonus": false
             },
             "Wracasz na start": {
                 "action": "goto",
                 "destination": "start",
-                "start bonus": false
+                "startBonus": false
             },
             "Idziesz do Neapolu": {
                 "action": "goto",
                 "destination": "Neapol",
-                "start bonus": true
+                "startBonus": true
             },
             "Idziesz do Kolei Wschodnich": {
                 "action": "goto",
                 "destination": "Kolei Wschodnich",
-                "start bonus": true
+                "startBonus": true
             }
         }
     }
