@@ -1,150 +1,327 @@
 {
+    "name": "Eurobusiness Classic",
+    "uri": "https://raw.githubusercontent.com/Izab3la/monopolyBanking/main/assets/variants/eurobusiness-classic.json",
     "properties": {
-        "Grecja": {
-            "color": "yellow",
-            "cities": {
-                "Saloniki": 120,
-                "Ateny": 120
+        "groups": {
+            "Grecja": {
+                "color": "yellow",
+                "cities": {
+                    "Saloniki": {
+                        "price": 120
+                    },
+                    "Ateny": {
+                        "price": 120
+                    }
+                }
+            },
+            "Włochy": {
+                "color": "red",
+                "cities": {
+                    "Neapol": {
+                        "price": 200
+                    },
+                    "Mediolan": {
+                        "price": 200
+                    },
+                    "Rzym": {
+                        "price": 240
+                    }
+                }
+            },
+            "Hiszpania": {
+                "color": "blue",
+                "cities": {
+                    "Barcelona": {
+                        "price": 280
+                    },
+                    "Sewilla": {
+                        "price": 280
+                    },
+                    "Madryt": {
+                        "price": 320
+                    }
+                }
+            },
+            "Anglia": {
+                "color": "orange",
+                "cities": {
+                    "Liverpool": {
+                        "price": 360
+                    },
+                    "Glasgow": {
+                        "price": 360
+                    },
+                    "Londyn": {
+                        "price": 400
+                    }
+                }
+            },
+            "Benelux": {
+                "color": "green",
+                "cities": {
+                    "Rotterdam": {
+                        "price": 440
+                    },
+                    "Bruksela": {
+                        "price": 440
+                    },
+                    "Amsterdam": {
+                        "price": 480
+                    }
+                }
+            },
+            "Szwecja": {
+                "color": "purple",
+                "cities": {
+                    "Malmo": {
+                        "price": 520
+                    },
+                    "Goteborg": {
+                        "price": 520
+                    },
+                    "Sztokholm": {
+                        "price": 560
+                    }
+                }
+            },
+            "RFN": {
+                "color": "brown",
+                "cities": {
+                    "Frankfurt": {
+                        "price": 600
+                    },
+                    "Kolonia": {
+                        "price": 600
+                    },
+                    "Bonn": {
+                        "price": 640
+                    }
+                }
+            },
+            "Austria": {
+                "color": "black",
+                "cities": {
+                    "Innsbruck": {
+                        "price": 700
+                    },
+                    "Wiedeń": {
+                        "price": 800
+                    }
+                }
             }
         },
-        "Włochy": {
-            "color": "red",
-            "cities": {
-                "Neapol": 200,
-                "Mediolan": 200,
-                "Rzym": 240
-            }
-        },
-        "Hiszpania": {
-            "color": "blue",
-            "cities": {
-                "Barcelona": 280,
-                "Sewilla": 280,
-                "Madryt": 320
-            }
-        },
-        "Anglia": {
-            "color": "orange",
-            "cities": {
-                "Liverpool": 360,
-                "Glasgow": 360,
-                "Londyn": 400
-            }
-        },
-        "Benelux": {
-            "color": "green",
-            "cities": {
-                "Rotterdam": 440,
-                "Bruksela": 440,
-                "Amsterdam": 480
-            }
-        },
-        "Szwecja": {
-            "color": "purple",
-            "cities": {
-                "Malmo": 520,
-                "Goteborg": 520,
-                "Sztokholm": 560
-            }
-        },
-        "RFN": {
-            "color": "brown",
-            "cities": {
-                "Frankfurt": 600,
-                "Kolonia": 600,
-                "Bonn": 640
-            }
-        },
-        "Austria": {
-            "color": "black",
-            "cities": {
-                "Innsbruck": 700,
-                "Wiedeń": 800
-            }
-        },
-        "middlePieces": {
+        "middles": {
             "color": "none",
             "cities": {
-                "Południowe": 400,
-                "Zachodnie": 400,
-                "Północne": 400,
-                "Wschodnie": 400
+                "Południowe": {
+                    "price": 400
+                },
+                "Zachodnie": {
+                    "price": 400
+                },
+                "Północne": {
+                    "price": 400
+                },
+                "Wschodnie": {
+                    "price": 400
+                }
             }
         },
-        "theDuo": {
+        "duo": {
             "color": "none",
             "cities": {
-                "Elektrownia atomowa": 300,
-                "Sieć wodociągowa": 300
+                "Elektrownia atomowa": {
+                    "price": 300
+                },
+                "Sieć wodociągowa": {
+                    "price": 300
+                }
             }
         },
-        "specialFields": {
+        "specials": {
             "color": "none",
             "cities": {
-                "Parking strzeżony": 400,
-                "Podatek od wzbogacenia": 200
+                "Parking strzeżony": {
+                    "price": 400
+                },
+                "Podatek od wzbogacenia": {
+                    "price": 200
+                }
             }
         }
     },
     "cards": {
         "blue": {
-            "get": {
-                "Omyłka banku": 400,
-                "Konkurs piękności": 200,
-                "Zwrot podatku": 40,
-                "Odsetki kapitału": 50,
-                "Rabat z magazynu": 20,
-                "Spadek": 200,
-                "Roczna renta": 200,
-                "Urodziny": {
-                    "amount": 20,
-                    "instructions": "from each player"
-                }
+            "Omyłka banku": {
+                "action": "transfer",
+                "amount": 400,
+                "payer": "bank",
+                "recipient": "player"
             },
-            "pay": {
-                "Składka ubezpieczeniowa": 20,
-                "Budowa szpitala": 400,
-                "Karta lub szansa": 20,
-                "Leczenia": 20
+            "Konkurs piękności": {
+                "action": "transfer",
+                "amount": 200,
+                "payer": "bank",
+                "recipient": "player"
             },
-            "other": {
-                "Wracasz do Wiednia": 0,
-                "Wracasz na start": 0,
-                "Wychodzisz z więzienia": 0,
-                "Idziesz do więzienia": 0
+            "Zwrot podatku": {
+                "action": "transfer",
+                "amount": 40,
+                "payer": "bank",
+                "recipient": "player"
+            },
+            "Odsetki kapitału": {
+                "action": "transfer",
+                "amount": 50,
+                "payer": "bank",
+                "recipient": "player"
+            },
+            "Rabat z magazynu": {
+                "action": "transfer",
+                "amount": 20,
+                "payer": "bank",
+                "recipient": "player"
+            },
+            "Spadek": {
+                "action": "transfer",
+                "amount": 200,
+                "payer": "bank",
+                "recipient": "player"
+            },
+            "Roczna renta": {
+                "action": "transfer",
+                "amount": 200,
+                "payer": "bank",
+                "recipient": "player"
+            },
+            "Urodziny": {
+                "action": "transfer",
+                "amount": 20,
+                "payer": "all players",
+                "recipient": "player"
+            },
+            "Składka ubezpieczeniowa": {
+                "action": "transfer",
+                "amount": 20,
+                "payer": "player",
+                "recipient": "bank"
+            },
+            "Budowa szpitala": {
+                "action": "transfer",
+                "amount": 400,
+                "payer": "player",
+                "recipient": "bank"
+            },
+            "Karta lub szansa": {
+                "action": "transfer",
+                "amount": 20,
+                "payer": "player",
+                "recipient": "bank"
+            },
+            "Leczenie": {
+                "action": "transfer",
+                "amount": 20,
+                "payer": "player",
+                "recipient": "bank"
+            },
+            "Wracasz do Wiednia": {
+                "action": "goto",
+                "destination": "Wiedeń",
+                "start bonus": false
+            },
+            "Wracasz na start": {
+                "action": "goto",
+                "destination": "start",
+                "start bonus": false
+            },
+            "Wychodzisz z więzienia": {
+                "action": "jail leave"
+            },
+            "Idziesz do więzienia": {
+                "action": "jail goto"
             }
         },
         "red": {
-            "get": {
-                "Procenty": 100,
-                "Odsetki": 300,
-                "Rozwiązanie krzyżówki": 200
+            "Procenty": {
+                "action": "transfer",
+                "amount": 100,
+                "payer": "player",
+                "recipient": "bank"
             },
-            "pay": {
-                "Modernizacja": {
-                    "amount1": 80,
-                    "amount2": 230,
-                    "instructions": "for each house and hotel"
-                },
-                "Remont": {
-                    "amount1": 50,
-                    "amount2": 200,
-                    "instructions": "for each house and hotel"
-                },
-                "Mandat za szybką jazdę": 30,
-                "Picie w pracy": 40,
-                "Opłata za szkołę": 300
+            "Odsetki": {
+                "action": "transfer",
+                "amount": 300,
+                "payer": "player",
+                "recipient": "bank"
+            },
+            "Rozwiązanie krzyżówki": {
+                "action": "transfer",
+                "amount": 200,
+                "payer": "player",
+                "recipient": "bank"
+            },
+            "Modernizacja": {
+                "action": "renovation",
+                "small": 80,
+                "big": 230
+            },
+            "Remont": {
+                "action": "renovation",
+                "small": 50,
+                "big": 200
+            },
+            "Mandat za szybką jazdę": {
+                "action": "transfer",
+                "amount": 30,
+                "payer": "player",
+                "recipient": "bank"
+            },
+            "Picie w pracy": {
+                "action": "transfer",
+                "amount": 40,
+                "payer": "player",
+                "recipient": "bank"
+            },
+            "Opłata za szkołę": {
+                "action": "transfer",
+                "amount": 300,
+                "payer": "player",
+                "recipient": "bank"
+            },
+            "Wychodzisz z więzienia": {
+                "action": "jail leave"
+            },
+            "Idziesz do więzienia": {
+                "action": "jail goto"
+            },
+            "Cofasz się o 3 pola": {
+                "action": "move",
+                "distance": -3
+            },
+            "Wracasz do Brukseli": {
+                "action": "goto",
+                "destination": "Bruksela",
+                "start bonus": true
+            },
+            "Wracasz do Madrytu": {
+                "action": "goto",
+                "destination": "Madryt",
+                "start bonus": false
+            },
+            "Wracasz na start": {
+                "action": "goto",
+                "destination": "start",
+                "start bonus": false
+            },
+            "Idziesz do Neapolu": {
+                "action": "goto",
+                "destination": "Neapol",
+                "start bonus": true
+            },
+            "Idziesz do Kolei Wschodnich": {
+                "action": "goto",
+                "destination": "Kolei Wschodnich",
+                "start bonus": true
             }
-        },
-        "other": {
-            "Wychodzisz z więzienia": 0,
-            "Idziesz do więzienia": 0,
-            "Cofasz się o 3 pola": 0,
-            "Wracasz do Brukseli": 400,
-            "Wracasz do Madrytu": 0,
-            "Wracasz na start": 0,
-            "Idziesz do Neapolu": 400,
-            "Idziesz do Kolei Wschodnich": 400
         }
     }
-}
