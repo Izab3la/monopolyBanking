@@ -2,151 +2,148 @@
     "name": "Eurobusiness Classic",
     "uri": "https://raw.githubusercontent.com/Izab3la/monopolyBanking/main/assets/variants/eurobusiness-classic.json",
     "properties": {
-        "groups": {
+        "districts": {
             "Grecja": {
-                "color": "yellow",
-                "cities": {
-                    "Saloniki": {
-                        "price": 120
-                    },
-                    "Ateny": {
-                        "price": 120
-                    }
+                "Saloniki": {
+                    "color": "yellow",
+                    "price": 120
+                },
+                "Ateny": {
+                    "color": "yellow",
+                    "price": 120
                 }
             },
             "Włochy": {
-                "color": "red",
-                "cities": {
-                    "Neapol": {
-                        "price": 200
-                    },
-                    "Mediolan": {
-                        "price": 200
-                    },
-                    "Rzym": {
-                        "price": 240
-                    }
+                "Neapol": {
+                    "color": "red",
+                    "price": 200
+                },
+                "Mediolan": {
+                    "color": "red",
+                    "price": 200
+                },
+                "Rzym": {
+                    "color": "red",
+                    "price": 240
                 }
             },
             "Hiszpania": {
-                "color": "blue",
-                "cities": {
-                    "Barcelona": {
-                        "price": 280
-                    },
-                    "Sewilla": {
-                        "price": 280
-                    },
-                    "Madryt": {
-                        "price": 320
-                    }
+                "Barcelona": {
+                    "color": "blue",
+                    "price": 280
+                },
+                "Sewilla": {
+                    "color": "blue",
+                    "price": 280
+                },
+                "Madryt": {
+                    "color": "blue",
+                    "price": 320
                 }
             },
             "Anglia": {
-                "color": "orange",
-                "cities": {
-                    "Liverpool": {
-                        "price": 360
-                    },
-                    "Glasgow": {
-                        "price": 360
-                    },
-                    "Londyn": {
-                        "price": 400
-                    }
+                "Liverpool": {
+                    "color": "orange",
+                    "price": 360
+                },
+                "Glasgow": {
+                    "color": "orange",
+                    "price": 360
+                },
+                "Londyn": {
+                    "color": "orange",
+                    "price": 400
                 }
             },
             "Benelux": {
-                "color": "green",
-                "cities": {
-                    "Rotterdam": {
-                        "price": 440
-                    },
-                    "Bruksela": {
-                        "price": 440
-                    },
-                    "Amsterdam": {
-                        "price": 480
-                    }
+                "Rotterdam": {
+                    "color": "green",
+                    "price": 440
+                },
+                "Bruksela": {
+                    "color": "green",
+                    "price": 440
+                },
+                "Amsterdam": {
+                    "color": "green",
+                    "price": 480
                 }
             },
             "Szwecja": {
-                "color": "purple",
-                "cities": {
-                    "Malmo": {
-                        "price": 520
-                    },
-                    "Goteborg": {
-                        "price": 520
-                    },
-                    "Sztokholm": {
-                        "price": 560
-                    }
+                "Malmo": {
+                    "color": "purple",
+                    "price": 520
+                },
+                "Goteborg": {
+                    "color": "purple",
+                    "price": 520
+                },
+                "Sztokholm": {
+                    "color": "purple",
+                    "price": 560
                 }
             },
             "RFN": {
-                "color": "brown",
-                "cities": {
-                    "Frankfurt": {
-                        "price": 600
-                    },
-                    "Kolonia": {
-                        "price": 600
-                    },
-                    "Bonn": {
-                        "price": 640
-                    }
+                "Frankfurt": {
+                    "color": "brown",
+                    "price": 600
+                },
+                "Kolonia": {
+                    "color": "brown",
+                    "price": 600
+                },
+                "Bonn": {
+                    "color": "brown",
+                    "price": 640
                 }
             },
             "Austria": {
-                "color": "black",
-                "cities": {
-                    "Innsbruck": {
-                        "price": 700
-                    },
-                    "Wiedeń": {
-                        "price": 800
-                    }
+                "Innsbruck": {
+                    "color": "black",
+                    "price": 700
+                },
+                "Wiedeń": {
+                    "color": "black",
+                    "price": 800
                 }
             }
         },
         "middles": {
-            "color": "none",
-            "cities": {
-                "Południowe": {
-                    "price": 400
-                },
-                "Zachodnie": {
-                    "price": 400
-                },
-                "Północne": {
-                    "price": 400
-                },
-                "Wschodnie": {
-                    "price": 400
-                }
+            "Południowe": {
+                "color": "none",
+                "price": 400
+            },
+            "Zachodnie": {
+                "color": "none",
+                "price": 400
+            },
+            "Północne": {
+                "color": "none",
+                "price": 400
+            },
+            "Wschodnie": {
+                "color": "none",
+                "price": 400
             }
         },
         "duo": {
-            "color": "none",
-            "cities": {
-                "Elektrownia atomowa": {
-                    "price": 300
-                },
-                "Sieć wodociągowa": {
-                    "price": 300
-                }
+            "Elektrownia atomowa": {
+                "color": "none",
+                "price": 300
+            },
+            "Sieć wodociągowa": {
+                "color": "none",
+                "price": 300
             }
         },
         "specials": {
-            "color": "none",
-            "cities": {
-                "Parking strzeżony": {
-                    "price": 400
-                },
-                "Podatek od wzbogacenia": {
-                    "price": 200
-                }
+            "Parking strzeżony": {
+                "color": "none",
+                "price": 400
+            },
+            "Podatek od wzbogacenia": {
+                "color": "none",
+                "price": 200
             }
         }
     },
