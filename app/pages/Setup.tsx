@@ -1,76 +1,74 @@
 import * as React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { BackHandler, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { View, FlatList } from "react-native";
-import { Card, IconButton, Text, TextInput } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Button, Text } from "react-native-paper";
 
-interface Player {
-  name: string;
-}
+import Players from "../components/Players.tsx";
+import Presets, { PresetI } from "../components/Presets.tsx";
 
 export default function Setup() {
+  const [step, setStep] = useState(0);
+  const [preset, setPreset] = useState(null);
   const [players, setPlayers] = useState([]);
 
-  const [name, setName] = useState("");
+  useEffect(() => {
+    const backAction = () => {
+      if (step > 0) {
+        if (step === 1) {
+          setPlayers([]);
+        }
+        setStep(step - 1);
 
-  function addPlayer() {
-    if (!name) return;
-    if (players.some((player: Player) => player.name === name)) return;
+        return true;
+      }
 
-    setPlayers([...players, { name }]);
+      return false;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction,
+    );
+
+    return () => backHandler.remove();
+  }, [step]);
+
+  function onSelectPreset(preset: PresetI) {
+    setPreset(preset);
+    setStep(1);
+  }
+
+  function onConfirmPlayers() {
+    setStep(2);
   }
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View
-        style={{
-          flex: 1,
-          gap: 10,
-        }}
-      >
-        <FlatList
-          style={{
-            flex: 1,
-          }}
-          data={players}
-          renderItem={({
-            item: player,
-            index,
-          }: {
-            player: Player;
-            index: number;
-          }) => (
-            <Card
-              key={index}
-              style={{ marginHorizontal: 10, marginVertical: 5 }}
-            >
-              <Card.Content>
-                <Text>{player.name}</Text>
-              </Card.Content>
-            </Card>
-          )}
-        />
-
-        <Card style={{ margin: 10 }}>
-          <Card.Content
+      {[
+        <Presets onSelectPreset={onSelectPreset} />,
+        <View style={{ flex: 1 }}>
+          <Players players={players} setPlayers={setPlayers} />
+          <Button
             style={{
-              flexDirection: "row",
+              margin: 10,
+              height: 50,
+              justifyContent: "center",
             }}
+            mode="elevated"
+            onPress={onConfirmPlayers}
           >
-            <TextInput
-              style={{
-                flex: 1,
-              }}
-              mode="outlined"
-              label="Name"
-              value={name}
-              onChangeText={setName}
-            />
-            <IconButton icon="plus" onPress={addPlayer} size={40} />
-          </Card.Content>
-        </Card>
-      </View>
+            Confirm
+          </Button>
+        </View>,
+        <View
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
+          <Text>{JSON.stringify(preset)}</Text>
+          <Text>{JSON.stringify(players)}</Text>
+        </View>,
+      ][step]}
 
       <StatusBar />
     </SafeAreaView>
