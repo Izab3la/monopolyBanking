@@ -1,10 +1,10 @@
-import { StatusBar } from "expo-status-bar";
-import { View } from "react-native";
 import {
   MD3LightTheme as DefaultTheme,
   PaperProvider,
-  Text,
 } from "react-native-paper";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "./pages/Home.tsx";
 
 const theme = {
   ...DefaultTheme,
@@ -15,20 +15,22 @@ const theme = {
   },
 };
 
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
     <PaperProvider theme={theme}>
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: "#fff",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Text variant="displayLarge">App</Text>
-        <StatusBar style="auto" />
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </PaperProvider>
   );
 }
