@@ -3,10 +3,7 @@ import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { Card, IconButton, Text, TextInput } from "react-native-paper";
 
-export interface PlayerI {
-  name: string;
-  balance: number;
-}
+import { PlayerI } from "../data.ts";
 
 export default function Players({
   initialBalance,

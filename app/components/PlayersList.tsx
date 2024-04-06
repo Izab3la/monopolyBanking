@@ -2,8 +2,8 @@ import * as React from "react";
 import { FlatList } from "react-native";
 import { Button, Text } from "react-native-paper";
 
+import { PlayerI } from "../data.ts";
 import { getPlayers } from "../helpers.ts";
-import { PlayerI } from "../components/Players.tsx";
 
 export default function PlayersList({
   onPlayerPress,
