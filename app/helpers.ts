@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
-import { PropertyI, PlayerI, DistrictI } from "./data";
-import { store, transfer as storeTransfer, buyProperty as storeBuyProperty } from "./GameReducer";
+import { PropertyI, PlayerI, DistrictI, CardStackI } from "./data";
+import { store, transfer as storeTransfer, buyProperty as storeBuyProperty, useCard as storeUseCard } from "./GameReducer";
 
 export function getNaming() {
     return store.getState().naming;
@@ -57,7 +57,14 @@ export function getDistricts(): DistrictI[] {
 }
 
 export function buyProperty(player: string, property: string) {
-    store.dispatch(
-        storeBuyProperty({ player, property }),
-    );
+    store.dispatch(storeBuyProperty({ player, property }),);
+}
+
+export function getCardStacks(): CardStackI[] {
+    return store.getState().cardStacks;
+}
+
+export function useCard(player: string, card: string) {
+    console.log(`Card "${card}" used`);
+    store.dispatch(storeUseCard({ player, card }));
 }

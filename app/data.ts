@@ -3,6 +3,11 @@ export interface PlayerI {
     balance: number;
 }
 
+export interface CardStackI {
+    name: string;
+    cards: CardI[];
+}
+
 export interface CardI {
     name: string;
     description: string | undefined;
@@ -51,9 +56,5 @@ export interface PresetI {
         duo: PropertyI[];
         specials: PropertyI[];
     };
-    cards: {
-        [type: string]: {
-            [name: string]: CardI;
-        };
-    };
+    cardStacks: CardStackI[];
 }

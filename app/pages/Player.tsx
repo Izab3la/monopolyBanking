@@ -6,11 +6,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, Card } from "react-native-paper";
 import { BackHandler } from "react-native";
 
-import { getPlayers, getMiddles, getDuo, getSpecials, buyProperty, transfer, getDistricts, getNaming, formatCurrency } from "../helpers";
+import { getPlayers, getMiddles, getDuo, getSpecials, buyProperty, transfer, getDistricts, getNaming, formatCurrency, getCardStacks, useCard } from "../helpers";
 import { PlayerI } from "../data";
 import CustomTransaction from "../components/CustomTransaction";
 import PropertiesBuyList from "../components/PropertiesBuyList";
 import ExpandableCard from "../components/ExpandableCard";
+import TransferCardList from "../components/TransferCardList";
 
 export default function Player({
     navigation,
@@ -44,16 +45,26 @@ export default function Player({
         }
     }
 
+    const districts = getDistricts();
     const middles = getMiddles();
     const duo = getDuo();
     const specials = getSpecials();
-    const districts = getDistricts();
 
     function onBuyProperty(name: string) {
         try {
             buyProperty(player?.name, name);
         } catch (error) {
             console.error("Error buying property", error)
+        }
+    }
+
+    const cardStacks = getCardStacks()
+
+    function onCardTransaction(name: string) {
+        try {
+            useCard(player?.name, name)
+        } catch (error) {
+            console.error("Error using transfer card", error)
         }
     }
 
@@ -120,6 +131,12 @@ export default function Player({
                 <ExpandableCard label={naming.specials}>
                     <PropertiesBuyList properties={specials} onPay={onBuyProperty} />
                 </ExpandableCard>
+
+                {cardStacks.map((stack, key) => (
+                    <ExpandableCard key={key} label={stack.name} maxHeight={stack.name.length * 80}>
+                        <TransferCardList cards={stack.cards.filter((card) => card.action === "transfer")} onCardActionPress={onCardTransaction} />
+                    </ExpandableCard>
+                ))}
             </ScrollView>
 
             <StatusBar style="auto" />

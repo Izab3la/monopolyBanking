@@ -1,6 +1,6 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-import { DistrictI, PlayerI, PropertyI, PresetI, CardI } from "./data";
+import { DistrictI, PlayerI, PropertyI, PresetI, CardStackI, CardI } from "./data";
 
 type StateI = {
     name: string;
@@ -23,11 +23,7 @@ type StateI = {
         duo: PropertyI[];
         specials: PropertyI[];
     };
-    cards: {
-        [type: string]: {
-            [name: string]: CardI;
-        };
-    };
+    cardStacks: CardStackI[];
     players: PlayerI[];
 }
 
@@ -58,6 +54,7 @@ function transferFn(
     }
 
     if (payer.balance < payload.amount) {
+        // TODO: Handle going in debt
         throw new Error(`Player ${payer.name} does not have enough money`);
     }
 
@@ -86,18 +83,70 @@ function buyPropertyFn(state: StateI, { payload }: { payload: { player: string; 
     }
 
     try {
-        transferFn(
-            state,
-            {
-                payload: {
-                    from: player.name,
-                    to: "bank",
-                    amount: property.price
-                }
+        transferFn(state, {
+            payload: {
+                from: player.name,
+                to: "bank",
+                amount: property.price
             }
-        );
+        });
     } catch (error) {
         throw error
+    }
+}
+
+function useCardFn(state: StateI, { payload }: { payload: { player: string, card: string } }): void {
+    const player = state.players.find((p) => p.name === payload.player);
+    if (!player) {
+        throw new Error(`Player ${payload.player} does not exist`);
+    }
+
+    const card = state.cardStacks.reduce((acc: undefined | CardI, stack) => {
+        if (acc) {
+            return acc;
+        }
+        return stack.cards.find((c) => c.name === payload.card);
+    }, undefined);
+    if (!card) {
+        throw new Error(`Card ${payload.card} does not exist`);
+    }
+
+    if (card.action === "transfer") {
+        transferCard(state, player.name, card);
+    } else {
+        throw new Error(`Card ${card.name} has an unsupported action ${card.action}`);
+    }
+}
+function transferCard(state: StateI, player: string, card: CardI): void {
+    const mapToPlayers = (name: string): string[] => {
+        if (name === "bank") {
+            return ["bank"]
+        }
+        if (name === "player") {
+            return [player];
+        }
+        if (name === "all players") {
+            return state.players.map((p) => p.name);
+        }
+    }
+
+    try {
+        const payers = mapToPlayers(card.payer);
+        const recipients = mapToPlayers(card.recipient);
+
+        for (const payer of payers) {
+            for (const recipient of recipients) {
+                transferFn(state, {
+                    payload: {
+                        from: payer,
+                        to: recipient,
+                        amount: card.amount
+                    }
+                });
+            }
+        }
+    } catch (error) {
+        throw error;
     }
 }
 
@@ -124,7 +173,7 @@ const gameSlice = createSlice({
             duo: [],
             specials: [],
         },
-        cards: {},
+        cardStacks: [],
         players: [],
     },
     reducers: {
@@ -134,7 +183,7 @@ const gameSlice = createSlice({
             state.settings = payload.settings;
             state.naming = payload.naming;
             state.properties = payload.properties;
-            state.cards = payload.cards;
+            state.cardStacks = payload.cardStacks;
         },
         addPlayers: ({ players }: StateI, { payload }: { payload: PlayerI[] }) => {
             for (const player of payload) {
@@ -150,10 +199,11 @@ const gameSlice = createSlice({
         },
         transfer: transferFn,
         buyProperty: buyPropertyFn,
+        useCard: useCardFn,
     },
 });
 
-export const { addPlayers, transfer, usePreset, buyProperty } = gameSlice.actions;
+export const { addPlayers, transfer, usePreset, buyProperty, useCard } = gameSlice.actions;
 
 export const store = configureStore({
     reducer: gameSlice.reducer,
