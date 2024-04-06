@@ -221,180 +221,218 @@
             }
         ]
     },
-    "cards": {
-        "blue": {
-            "Omyłka banku": {
-                "action": "transfer",
-                "amount": 400,
-                "payer": "bank",
-                "recipient": "player"
-            },
-            "Konkurs piękności": {
-                "action": "transfer",
-                "amount": 200,
-                "payer": "bank",
-                "recipient": "player"
-            },
-            "Zwrot podatku": {
-                "action": "transfer",
-                "amount": 40,
-                "payer": "bank",
-                "recipient": "player"
-            },
-            "Odsetki kapitału": {
-                "action": "transfer",
-                "amount": 50,
-                "payer": "bank",
-                "recipient": "player"
-            },
-            "Rabat z magazynu": {
-                "action": "transfer",
-                "amount": 20,
-                "payer": "bank",
-                "recipient": "player"
-            },
-            "Spadek": {
-                "action": "transfer",
-                "amount": 200,
-                "payer": "bank",
-                "recipient": "player"
-            },
-            "Roczna renta": {
-                "action": "transfer",
-                "amount": 200,
-                "payer": "bank",
-                "recipient": "player"
-            },
-            "Urodziny": {
-                "action": "transfer",
-                "amount": 20,
-                "payer": "all players",
-                "recipient": "player"
-            },
-            "Składka ubezpieczeniowa": {
-                "action": "transfer",
-                "amount": 20,
-                "payer": "player",
-                "recipient": "bank"
-            },
-            "Budowa szpitala": {
-                "action": "transfer",
-                "amount": 400,
-                "payer": "player",
-                "recipient": "bank"
-            },
-            "Karta lub szansa": {
-                "action": "transfer",
-                "amount": 20,
-                "payer": "player",
-                "recipient": "bank"
-            },
-            "Leczenie": {
-                "action": "transfer",
-                "amount": 20,
-                "payer": "player",
-                "recipient": "bank"
-            },
-            "Wracasz do Wiednia": {
-                "action": "goto",
-                "destination": "Wiedeń",
-                "startBonus": false
-            },
-            "Wracasz na start": {
-                "action": "goto",
-                "destination": "start",
-                "startBonus": false
-            },
-            "Wychodzisz z więzienia": {
-                "action": "jail leave"
-            },
-            "Idziesz do więzienia": {
-                "action": "jail goto"
-            }
+    "cardStacks": [
+        {
+            "name": "Niebieskie",
+            "cards": [
+                {
+                    "name": "Omyłka banku",
+                    "action": "transfer",
+                    "amount": 400,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Konkurs piękności",
+                    "action": "transfer",
+                    "amount": 200,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Zwrot podatku",
+                    "action": "transfer",
+                    "amount": 40,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Odsetki kapitału",
+                    "action": "transfer",
+                    "amount": 50,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Rabat z magazynu",
+                    "action": "transfer",
+                    "amount": 20,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Spadek",
+                    "action": "transfer",
+                    "amount": 200,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Roczna renta",
+                    "action": "transfer",
+                    "amount": 200,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Urodziny",
+                    "action": "transfer",
+                    "amount": 20,
+                    "payer": "all players",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Składka ubezpieczeniowa",
+                    "action": "transfer",
+                    "amount": 20,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Budowa szpitala",
+                    "action": "transfer",
+                    "amount": 400,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Karta lub szansa",
+                    "action": "transfer",
+                    "amount": 20,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Leczenie",
+                    "action": "transfer",
+                    "amount": 20,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Wracasz do Wiednia",
+                    "action": "goto",
+                    "destination": "Wiedeń",
+                    "startBonus": false
+                },
+                {
+                    "name": "Wracasz na start",
+                    "action": "goto",
+                    "destination": "start",
+                    "startBonus": false
+                },
+                {
+                    "name": "Wychodzisz z więzienia",
+                    "action": "jail leave"
+                },
+                {
+                    "name": "Idziesz do więzienia",
+                    "action": "jail goto"
+                }
+            ]
         },
-        "red": {
-            "Procenty": {
-                "action": "transfer",
-                "amount": 100,
-                "payer": "player",
-                "recipient": "bank"
-            },
-            "Odsetki": {
-                "action": "transfer",
-                "amount": 300,
-                "payer": "player",
-                "recipient": "bank"
-            },
-            "Rozwiązanie krzyżówki": {
-                "action": "transfer",
-                "amount": 200,
-                "payer": "player",
-                "recipient": "bank"
-            },
-            "Modernizacja": {
-                "action": "renovation",
-                "small": 80,
-                "big": 230
-            },
-            "Remont": {
-                "action": "renovation",
-                "small": 50,
-                "big": 200
-            },
-            "Mandat za szybką jazdę": {
-                "action": "transfer",
-                "amount": 30,
-                "payer": "player",
-                "recipient": "bank"
-            },
-            "Picie w pracy": {
-                "action": "transfer",
-                "amount": 40,
-                "payer": "player",
-                "recipient": "bank"
-            },
-            "Opłata za szkołę": {
-                "action": "transfer",
-                "amount": 300,
-                "payer": "player",
-                "recipient": "bank"
-            },
-            "Wychodzisz z więzienia": {
-                "action": "jail leave"
-            },
-            "Idziesz do więzienia": {
-                "action": "jail goto"
-            },
-            "Cofasz się o 3 pola": {
-                "action": "move",
-                "distance": -3,
-                "startBonus": true
-            },
-            "Wracasz do Brukseli": {
-                "action": "goto",
-                "destination": "Bruksela",
-                "startBonus": true
-            },
-            "Wracasz do Madrytu": {
-                "action": "goto",
-                "destination": "Madryt",
-                "startBonus": false
-            },
-            "Wracasz na start": {
-                "action": "goto",
-                "destination": "start",
-                "startBonus": false
-            },
-            "Idziesz do Neapolu": {
-                "action": "goto",
-                "destination": "Neapol",
-                "startBonus": true
-            },
-            "Idziesz do Kolei Wschodnich": {
-                "action": "goto",
-                "destination": "Kolei Wschodnich",
-                "startBonus": true
-            }
+        {
+            "name": "Czerwone",
+            "cards": [
+                {
+                    "name": "Procenty",
+                    "action": "transfer",
+                    "amount": 100,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Odsetki",
+                    "action": "transfer",
+                    "amount": 300,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Rozwiązanie krzyżówki",
+                    "action": "transfer",
+                    "amount": 200,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Modernizacja",
+                    "action": "renovation",
+                    "small": 80,
+                    "big": 230
+                },
+                {
+                    "name": "Remont",
+                    "action": "renovation",
+                    "small": 50,
+                    "big": 200
+                },
+                {
+                    "name": "Mandat za szybką jazdę",
+                    "action": "transfer",
+                    "amount": 30,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Picie w pracy",
+                    "action": "transfer",
+                    "amount": 40,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Opłata za szkołę",
+                    "action": "transfer",
+                    "amount": 300,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Wychodzisz z więzienia",
+                    "action": "jail leave"
+                },
+                {
+                    "name": "Idziesz do więzienia",
+                    "action": "jail goto"
+                },
+                {
+                    "name": "Cofasz się o 3 pola",
+                    "action": "move",
+                    "distance": -3,
+                    "startBonus": true
+                },
+                {
+                    "name": "Wracasz do Brukseli",
+                    "action": "goto",
+                    "destination": "Bruksela",
+                    "startBonus": true
+                },
+                {
+                    "name": "Wracasz do Madrytu",
+                    "action": "goto",
+                    "destination": "Madryt",
+                    "startBonus": false
+                },
+                {
+                    "name": "Wracasz na start",
+                    "action": "goto",
+                    "destination": "start",
+                    "startBonus": false
+                },
+                {
+                    "name": "Idziesz do Neapolu",
+                    "action": "goto",
+                    "destination": "Neapol",
+                    "startBonus": true
+                },
+                {
+                    "name": "Idziesz do Kolei Wschodnich",
+                    "action": "goto",
+                    "destination": "Kolei Wschodnich",
+                    "startBonus": true
+                }
+            ]
         }
-    }
+    ]
 }
