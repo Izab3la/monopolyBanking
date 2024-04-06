@@ -53,10 +53,11 @@ function transferFn(
         throw new Error(`Player ${payload.to} does not exist`);
     }
 
-    if (payer.balance < payload.amount) {
-        // TODO: Handle going in debt
-        throw new Error(`Player ${payer.name} does not have enough money`);
-    }
+    // TODO: Handle going in debt
+    // Temparary solution is to have a negative balance
+    // if (payer.balance < payload.amount) {
+    //     throw new Error(`Player ${payer.name} does not have enough money`);
+    // }
 
     payer.balance -= payload.amount;
     recipient.balance += payload.amount;
