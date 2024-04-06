@@ -1,49 +1,16 @@
 import * as React from "react";
-import { useEffect, useState, useRef } from "react";
+import { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import { Animated, ScrollView, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, Card } from "react-native-paper";
 import { BackHandler } from "react-native";
 
-import { getPlayers, getMiddles, getDuo, getSpecials, buyProperty } from "../helpers";
-import { PlayerI, PropertyI } from "../data";
+import { getPlayers, getMiddles, getDuo, getSpecials, buyProperty, transfer } from "../helpers";
+import { PlayerI } from "../data";
 import CustomTransaction from "../components/CustomTransaction";
 import PropertiesBuyList from "../components/PropertiesBuyList";
-
-function CustomCard({ properties, label, onPay }: { properties: PropertyI[], label: string, onPay: (name: string) => void }) {
-    const [expanded, setExpanded] = useState(true);
-    const expandAnim = useRef(new Animated.Value(0)).current;
-
-    useEffect(() => { setExpanded(false); }, []);
-
-    return (
-        <Card style={{
-            marginHorizontal: 10,
-            marginBottom: 10,
-        }}
-            onPress={
-                () => Animated.timing(expandAnim, {
-                    toValue: expanded ? 0 : 500,
-                    duration: 500,
-                    useNativeDriver: false,
-                }).start(() => setExpanded(!expanded))
-            }
-        >
-            <Card.Content>
-                <Text style={{ paddingHorizontal: 5 }} variant="titleMedium">{label}</Text>
-                <Animated.View
-                    style={{
-                        maxHeight: expandAnim,
-                        overflow: "hidden",
-                    }}
-                >
-                    <PropertiesBuyList properties={properties} onPay={onPay} />
-                </Animated.View>
-            </Card.Content>
-        </Card>
-    )
-}
+import ExpandableCard from "../components/ExpandableCard";
 
 export default function Player({
     navigation,
@@ -65,12 +32,17 @@ export default function Player({
     }, []);
 
     const { name } = route.params;
-    const player = getPlayers().find(
-        (player: PlayerI) => player.name === name,
-    ) as PlayerI | undefined;
+    const player = getPlayers((player: PlayerI) => player.name === name)?.[0] as PlayerI | undefined;
 
+    function onTransfer(to: string, amount: number) {
+        console.log("Transfering money");
+        try {
+            transfer(player?.name, to, amount);
+        } catch (error) {
+            console.error("Error transfering money", error);
+        }
+    }
     function onBuyProperty(name: string) {
-        console.log("Buying property", name);
         try {
             buyProperty(player?.name, name);
         } catch (error) {
@@ -108,17 +80,25 @@ export default function Player({
                 flex: 1,
             }}>
                 {player?.name && (
-                    <View style={{
+                    <Card style={{
                         marginHorizontal: 10,
                         marginVertical: 10,
                     }}>
-                        <CustomTransaction from={player?.name} />
-                    </View>
+                        <Card.Content>
+                            <CustomTransaction from={player?.name} onPay={onTransfer} />
+                        </Card.Content>
+                    </Card>
                 )}
 
-                <CustomCard label="Middles" properties={getMiddles()} onPay={onBuyProperty} />
-                <CustomCard label="Duo" properties={getDuo()} onPay={onBuyProperty} />
-                <CustomCard label="Specials" properties={getSpecials()} onPay={onBuyProperty} />
+                <ExpandableCard label="Middles">
+                    <PropertiesBuyList properties={getMiddles()} onPay={onBuyProperty} />
+                </ExpandableCard>
+                <ExpandableCard label="Duo">
+                    <PropertiesBuyList properties={getDuo()} onPay={onBuyProperty} />
+                </ExpandableCard>
+                <ExpandableCard label="Specials">
+                    <PropertiesBuyList properties={getSpecials()} onPay={onBuyProperty} />
+                </ExpandableCard>
             </ScrollView>
 
             <StatusBar style="auto" />
