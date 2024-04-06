@@ -2,183 +2,216 @@
     "name": "Eurobusiness Classic",
     "uri": "https://raw.githubusercontent.com/Izab3la/monopolyBanking/main/assets/variants/eurobusiness-classic.json",
     "setup": {
-        "playersBalance": 3000
+        "playersBalance": 3000,
+        "startBonus": 400
     },
     "properties": {
-        "districts": {
-            "Grecja": {
-                "Saloniki": {
-                    "color": "yellow",
-                    "name": "Saloniki",
-                    "price": 120
-                },
-                "Ateny": {
-                    "color": "yellow",
-                    "name": "Ateny",
-                    "price": 120
-                }
+        "districts": [
+            {
+                "name": "Grecja",
+                "color": "yellow",
+                "members": [
+                    {
+                        "color": "yellow",
+                        "name": "Saloniki",
+                        "price": 120
+                    },
+                    {
+                        "color": "yellow",
+                        "name": "Ateny",
+                        "price": 120
+                    }
+                ]
             },
-            "Włochy": {
-                "Neapol": {
-                    "color": "red",
-                    "name": "Neapol",
-                    "price": 200
-                },
-                "Mediolan": {
-                    "color": "red",
-                    "name": "Mediolan",
-                    "price": 200
-                },
-                "Rzym": {
-                    "color": "red",
-                    "name": "Rzym",
-                    "price": 240
-                }
+            {
+                "name": "Włochy",
+                "color": "red",
+                "members": [
+                    {
+                        "color": "red",
+                        "name": "Neapol",
+                        "price": 200
+                    },
+                    {
+                        "color": "red",
+                        "name": "Mediolan",
+                        "price": 200
+                    },
+                    {
+                        "color": "red",
+                        "name": "Rzym",
+                        "price": 240
+                    }
+                ]
             },
-            "Hiszpania": {
-                "Barcelona": {
-                    "color": "blue",
-                    "name": "Barcelona",
-                    "price": 280
-                },
-                "Sewilla": {
-                    "color": "blue",
-                    "name": "Sewilla",
-                    "price": 280
-                },
-                "Madryt": {
-                    "color": "blue",
-                    "name": "Madryt",
-                    "price": 320
-                }
+            {
+                "name": "Hiszpania",
+                "color": "blue",
+                "members": [
+                    {
+                        "color": "blue",
+                        "name": "Barcelona",
+                        "price": 280
+                    },
+                    {
+                        "color": "blue",
+                        "name": "Sewilla",
+                        "price": 280
+                    },
+                    {
+                        "color": "blue",
+                        "name": "Madryt",
+                        "price": 320
+                    }
+                ]
             },
-            "Anglia": {
-                "Liverpool": {
-                    "color": "orange",
-                    "name": "Liverpool",
-                    "price": 360
-                },
-                "Glasgow": {
-                    "color": "orange",
-                    "name": "Glasgow",
-                    "price": 360
-                },
-                "Londyn": {
-                    "color": "orange",
-                    "name": "Londyn",
-                    "price": 400
-                }
+            {
+                "name": "Anglia",
+                "color": "orange",
+                "members": [
+                    {
+                        "color": "orange",
+                        "name": "Liverpool",
+                        "price": 360
+                    },
+                    {
+                        "color": "orange",
+                        "name": "Glasgow",
+                        "price": 360
+                    },
+                    {
+                        "color": "orange",
+                        "name": "Londyn",
+                        "price": 400
+                    }
+                ]
             },
-            "Benelux": {
-                "Rotterdam": {
-                    "color": "green",
-                    "name": "Rotterdam",
-                    "price": 440
-                },
-                "Bruksela": {
-                    "color": "green",
-                    "name": "Bruksela",
-                    "price": 440
-                },
-                "Amsterdam": {
-                    "color": "green",
-                    "name": "Amsterdam",
-                    "price": 480
-                }
+            {
+                "name": "Benelux",
+                "color": "green",
+                "members": [
+                    {
+                        "color": "green",
+                        "name": "Rotterdam",
+                        "price": 440
+                    },
+                    {
+                        "color": "green",
+                        "name": "Bruksela",
+                        "price": 440
+                    },
+                    {
+                        "color": "green",
+                        "name": "Amsterdam",
+                        "price": 480
+                    }
+                ]
             },
-            "Szwecja": {
-                "Malmo": {
-                    "color": "purple",
-                    "name": "Malmo",
-                    "price": 520
-                },
-                "Goteborg": {
-                    "color": "purple",
-                    "name": "Goteborg",
-                    "price": 520
-                },
-                "Sztokholm": {
-                    "color": "purple",
-                    "name": "Sztokholm",
-                    "price": 560
-                }
+            {
+                "name": "Szwecja",
+                "color": "purple",
+                "members": [
+                    {
+                        "color": "purple",
+                        "name": "Malmo",
+                        "price": 520
+                    },
+                    {
+                        "color": "purple",
+                        "name": "Goteborg",
+                        "price": 520
+                    },
+                    {
+                        "color": "purple",
+                        "name": "Sztokholm",
+                        "price": 560
+                    }
+                ]
             },
-            "RFN": {
-                "Frankfurt": {
-                    "color": "brown",
-                    "name": "Frankfurt",
-                    "price": 600
-                },
-                "Kolonia": {
-                    "color": "brown",
-                    "name": "Kolonia",
-                    "price": 600
-                },
-                "Bonn": {
-                    "color": "brown",
-                    "name": "Bonn",
-                    "price": 640
-                }
+            {
+                "name": "RFN",
+                "color": "brown",
+                "members": [
+                    {
+                        "color": "brown",
+                        "name": "Frankfurt",
+                        "price": 600
+                    },
+                    {
+                        "color": "brown",
+                        "name": "Kolonia",
+                        "price": 600
+                    },
+                    {
+                        "color": "brown",
+                        "name": "Bonn",
+                        "price": 640
+                    }
+                ]
             },
-            "Austria": {
-                "Innsbruck": {
-                    "color": "black",
-                    "name": "Innsbruck",
-                    "price": 700
-                },
-                "Wiedeń": {
-                    "color": "black",
-                    "name": "Wiedeń",
-                    "price": 800
-                }
+            {
+                "name": "Austria",
+                "color": "black",
+                "members": [
+                    {
+                        "color": "black",
+                        "name": "Innsbruck",
+                        "price": 700
+                    },
+                    {
+                        "color": "black",
+                        "name": "Wiedeń",
+                        "price": 800
+                    }
+                ]
             }
-        },
-        "middles": {
-            "Południowe": {
+        ],
+        "middles": [
+            {
                 "color": "none",
                 "name": "Południowe",
                 "price": 400
             },
-            "Zachodnie": {
+            {
                 "color": "none",
                 "name": "Zachodnie",
                 "price": 400
             },
-            "Północne": {
+            {
                 "color": "none",
                 "name": "Północne",
                 "price": 400
             },
-            "Wschodnie": {
+            {
                 "color": "none",
                 "name": "Wschodnie",
                 "price": 400
             }
-        },
-        "duo": {
-            "Elektrownia atomowa": {
+        ],
+        "duo": [
+            {
                 "color": "none",
                 "name": "Elektrownia atomowa",
                 "price": 300
             },
-            "Sieć wodociągowa": {
+            {
                 "color": "none",
                 "name": "Sieć wodociągowa",
                 "price": 300
             }
-        },
-        "specials": {
-            "Parking strzeżony": {
+        ],
+        "specials": [
+            {
                 "color": "none",
                 "name": "Parking strzeżony",
                 "price": 400
             },
-            "Podatek od wzbogacenia": {
+            {
                 "color": "none",
                 "name": "Podatek od wzbogacenia",
                 "price": 200
             }
-        }
+        ]
     },
     "cards": {
         "blue": {
