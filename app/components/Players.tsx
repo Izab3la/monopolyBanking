@@ -3,14 +3,17 @@ import { useState } from "react";
 import { FlatList, View } from "react-native";
 import { Card, IconButton, Text, TextInput } from "react-native-paper";
 
-interface PlayerI {
+export interface PlayerI {
   name: string;
+  balance: number;
 }
 
 export default function Players({
+  initialBalance,
   players,
   setPlayers,
 }: {
+  initialBalance: number;
   players: PlayerI[];
   setPlayers: (players: PlayerI[]) => void;
 }) {
@@ -20,7 +23,7 @@ export default function Players({
     if (!name) return;
     if (players.some((player: PlayerI) => player.name === name)) return;
 
-    setPlayers([...players, { name }]);
+    setPlayers([...players, { name, balance: initialBalance }]);
   }
 
   return (

@@ -27,6 +27,9 @@ export interface CardI {
 export interface PresetI {
   name: string;
   uri: string;
+  setup: {
+    playersBalance: number;
+  };
   properties: {
     districts: {
       [district: string]: {

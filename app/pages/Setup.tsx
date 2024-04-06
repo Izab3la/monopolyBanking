@@ -4,14 +4,16 @@ import { BackHandler, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button, Text } from "react-native-paper";
+import { useDispatch } from "react-redux";
 
-import Players from "../components/Players.tsx";
+import { addPlayers, setPreset as setGlobalPreset } from "../GameReducer.ts";
+import Players, { PlayerI } from "../components/Players.tsx";
 import Presets, { PresetI } from "../components/Presets.tsx";
 
-export default function Setup() {
+export default function Setup({ navigation }: { navigation: any }) {
   const [step, setStep] = useState(0);
-  const [preset, setPreset] = useState(null);
-  const [players, setPlayers] = useState([]);
+  const [preset, setPreset] = useState<PresetI | undefined>(undefined);
+  const [players, setPlayers] = useState<PlayerI[]>([]);
 
   useEffect(() => {
     const backAction = () => {
@@ -44,12 +46,23 @@ export default function Setup() {
     setStep(2);
   }
 
+  const dispatch = useDispatch();
+  function startGame() {
+    dispatch(setGlobalPreset());
+    dispatch(addPlayers(players));
+    navigation.navigate("Game");
+  }
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       {[
         <Presets onSelectPreset={onSelectPreset} />,
         <View style={{ flex: 1 }}>
-          <Players players={players} setPlayers={setPlayers} />
+          <Players
+            initialBalance={preset?.setup.playersBalance}
+            players={players}
+            setPlayers={setPlayers}
+          />
           <Button
             style={{
               margin: 10,
@@ -62,12 +75,15 @@ export default function Setup() {
             Confirm
           </Button>
         </View>,
-        <View
+        <SafeAreaView
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
+          <Button onPress={startGame} mode="contained">
+            Start Game
+          </Button>
           <Text>{JSON.stringify(preset)}</Text>
           <Text>{JSON.stringify(players)}</Text>
-        </View>,
+        </SafeAreaView>,
       ][step]}
 
       <StatusBar />
