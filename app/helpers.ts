@@ -3,9 +3,10 @@ import { useSelector } from "react-redux";
 import { store, transfer as storeTransfer } from "./GameReducer";
 
 export function getPlayers(filter: (player: PlayerI) => boolean = () => true) {
-  return useSelector(({ players }: { players: PlayerI[] }) => players).filter(
-    filter,
-  );
+  return [
+    { name: "bank", balance: Number.MAX_SAFE_INTEGER },
+    ...useSelector(({ players }: { players: PlayerI[] }) => players),
+  ].filter(filter);
 }
 
 export function transfer(from: string, to: string, amount: number) {

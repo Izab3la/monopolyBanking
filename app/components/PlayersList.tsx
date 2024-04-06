@@ -1,8 +1,8 @@
 import * as React from "react";
 import { FlatList } from "react-native";
 import { Button, Text } from "react-native-paper";
-import { useSelector } from "react-redux";
 
+import { getPlayers } from "../helpers.ts";
 import { PlayerI } from "../components/Players.tsx";
 
 export default function PlayersList({
@@ -12,9 +12,9 @@ export default function PlayersList({
   onPlayerPress: (name: string) => void;
   exclude: string[];
 }) {
-  const players = useSelector(
-    ({ players }: { players: PlayerI[] }) => players,
-  ).filter((player: PlayerI) => !exclude.includes(player.name));
+  const players = getPlayers(
+    (player: PlayerI) => !exclude.includes(player.name),
+  );
 
   return (
     <FlatList

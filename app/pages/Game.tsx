@@ -11,6 +11,7 @@ export default function Game({ navigation }: { navigation: any }) {
         onPlayerPress={(name: string) => {
           navigation.navigate("Player", { name });
         }}
+        exclude={["bank"]}
       />
 
       <StatusBar />
