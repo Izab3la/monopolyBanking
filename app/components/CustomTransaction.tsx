@@ -42,7 +42,7 @@ export default function CustomTransaction({ from }: { from: string }) {
                         flex: 1,
                     }}
                     mode="outlined"
-                    label="Ammount"
+                    label="Amount"
                     inputMode="numeric"
                     value={amount}
                     onChangeText={setAmount}
