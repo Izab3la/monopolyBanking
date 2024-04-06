@@ -5,9 +5,17 @@ import { DistrictI, PlayerI, PropertyI, PresetI, CardI } from "./data";
 type StateI = {
     name: string;
     uri: string;
-    setup: {
+    settings: {
         playersBalance: number;
         startBonus: number;
+    };
+    naming: {
+        districts: string;
+        members: string;
+        middles: string;
+        duo: string;
+        specials: string;
+        currency: string;
     };
     properties: {
         districts: DistrictI[];
@@ -98,9 +106,17 @@ const gameSlice = createSlice({
     initialState: {
         name: "",
         uri: "",
-        setup: {
+        settings: {
             playersBalance: 0,
             startBonus: 0,
+        },
+        naming: {
+            districts: "",
+            members: "",
+            middles: "",
+            duo: "",
+            specials: "",
+            currency: "",
         },
         properties: {
             districts: [],
@@ -115,7 +131,8 @@ const gameSlice = createSlice({
         usePreset: (state: StateI, { payload }: { payload: PresetI }) => {
             state.name = payload.name;
             state.uri = payload.uri;
-            state.setup = payload.setup;
+            state.settings = payload.settings;
+            state.naming = payload.naming;
             state.properties = payload.properties;
             state.cards = payload.cards;
         },

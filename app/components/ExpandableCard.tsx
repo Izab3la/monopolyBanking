@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { Animated } from "react-native";
 import { Text, Card } from "react-native-paper";
 
-export default function ExpandableCard({ children, label }: { children: React.ReactNode, label: string }) {
+export default function ExpandableCard({ children, label, maxHeight = 500 }: { children: React.ReactNode, label: string, maxHeight?: number }) {
     const [expanded, setExpanded] = useState(true);
     const expandAnim = useRef(new Animated.Value(0)).current;
 
@@ -16,7 +16,7 @@ export default function ExpandableCard({ children, label }: { children: React.Re
         }}
             onPress={
                 () => Animated.timing(expandAnim, {
-                    toValue: expanded ? 0 : 500,
+                    toValue: expanded ? 0 : maxHeight,
                     duration: 500,
                     useNativeDriver: false,
                 }).start(() => setExpanded(!expanded))

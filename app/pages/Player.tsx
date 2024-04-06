@@ -6,7 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, Card } from "react-native-paper";
 import { BackHandler } from "react-native";
 
-import { getPlayers, getMiddles, getDuo, getSpecials, buyProperty, transfer } from "../helpers";
+import { getPlayers, getMiddles, getDuo, getSpecials, buyProperty, transfer, getDistricts, getNaming, formatCurrency } from "../helpers";
 import { PlayerI } from "../data";
 import CustomTransaction from "../components/CustomTransaction";
 import PropertiesBuyList from "../components/PropertiesBuyList";
@@ -33,6 +33,7 @@ export default function Player({
 
     const { name } = route.params;
     const player = getPlayers((player: PlayerI) => player.name === name)?.[0] as PlayerI | undefined;
+    const naming = getNaming()
 
     function onTransfer(to: string, amount: number) {
         console.log("Transfering money");
@@ -42,6 +43,12 @@ export default function Player({
             console.error("Error transfering money", error);
         }
     }
+
+    const middles = getMiddles();
+    const duo = getDuo();
+    const specials = getSpecials();
+    const districts = getDistricts();
+
     function onBuyProperty(name: string) {
         try {
             buyProperty(player?.name, name);
@@ -73,7 +80,7 @@ export default function Player({
                 >
                     {player?.name}
                 </Text>
-                <Text variant="displayLarge">${player?.balance}</Text>
+                <Text variant="displayLarge">{formatCurrency(player?.balance)}</Text>
             </View>
 
             <ScrollView style={{
@@ -90,14 +97,28 @@ export default function Player({
                     </Card>
                 )}
 
-                <ExpandableCard label="Middles">
-                    <PropertiesBuyList properties={getMiddles()} onPay={onBuyProperty} />
+                <ExpandableCard label={naming.districts} maxHeight={districts.reduce((acc, d) => acc + d.members.length * 80, 0)}>
+                    {districts.map((district, key) => (
+                        <View
+                            key={key}
+                            style={{
+                                marginVertical: 10,
+                            }}
+                        >
+                            <Text variant="titleSmall" style={{ paddingHorizontal: 5 }}>{district.name}</Text>
+                            <PropertiesBuyList properties={district.members} onPay={onBuyProperty} />
+                        </View>
+                    ))}
                 </ExpandableCard>
-                <ExpandableCard label="Duo">
-                    <PropertiesBuyList properties={getDuo()} onPay={onBuyProperty} />
+
+                <ExpandableCard label={naming.middles}>
+                    <PropertiesBuyList properties={middles} onPay={onBuyProperty} />
                 </ExpandableCard>
-                <ExpandableCard label="Specials">
-                    <PropertiesBuyList properties={getSpecials()} onPay={onBuyProperty} />
+                <ExpandableCard label={naming.duo}>
+                    <PropertiesBuyList properties={duo} onPay={onBuyProperty} />
+                </ExpandableCard>
+                <ExpandableCard label={naming.specials}>
+                    <PropertiesBuyList properties={specials} onPay={onBuyProperty} />
                 </ExpandableCard>
             </ScrollView>
 

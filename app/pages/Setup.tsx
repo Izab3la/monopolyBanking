@@ -60,7 +60,7 @@ export default function Setup({ navigation }: { navigation: any }) {
                 <Presets onSelectPreset={onSelectPreset} />,
                 <View style={{ flex: 1 }}>
                     <Players
-                        initialBalance={preset?.setup.playersBalance}
+                        initialBalance={preset?.settings.playersBalance}
                         players={players}
                         setPlayers={setPlayers}
                     />

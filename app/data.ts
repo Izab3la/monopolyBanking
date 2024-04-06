@@ -3,12 +3,6 @@ export interface PlayerI {
     balance: number;
 }
 
-export interface PropertyI {
-    name: string;
-    color: string;
-    price: number;
-}
-
 export interface CardI {
     name: string;
     description: string | undefined;
@@ -24,6 +18,12 @@ export interface CardI {
     startBonus: boolean | undefined;
 }
 
+export interface PropertyI {
+    name: string;
+    color: string;
+    price: number;
+}
+
 export interface DistrictI {
     name: string;
     color: string;
@@ -33,9 +33,17 @@ export interface DistrictI {
 export interface PresetI {
     name: string;
     uri: string;
-    setup: {
+    settings: {
         playersBalance: number;
         startBonus: number;
+    };
+    naming: {
+        districts: string;
+        members: string;
+        middles: string;
+        duo: string;
+        specials: string;
+        currency: string;
     };
     properties: {
         districts: DistrictI[];
