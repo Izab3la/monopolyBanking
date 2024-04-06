@@ -1,9 +1,17 @@
 {
     "name": "Eurobusiness Classic",
     "uri": "https://raw.githubusercontent.com/Izab3la/monopolyBanking/main/assets/variants/eurobusiness-classic.json",
-    "setup": {
+    "settings": {
         "playersBalance": 3000,
         "startBonus": 400
+    },
+    "naming": {
+        "districts": "Kraje",
+        "members": "Miasta",
+        "middles": "Koleje",
+        "duo": "Usługi",
+        "specials": "Specjalne",
+        "currency": "€"
     },
     "properties": {
         "districts": [
