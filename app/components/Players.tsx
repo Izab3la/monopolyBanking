@@ -23,6 +23,7 @@ export default function Players({
     if (!name) return;
     if (players.some((player: PlayerI) => player.name === name)) return;
 
+    setName("");
     setPlayers([...players, { name, balance: initialBalance }]);
   }
 
