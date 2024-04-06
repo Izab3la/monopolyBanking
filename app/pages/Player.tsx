@@ -37,7 +37,6 @@ export default function Player({
     const naming = getNaming()
 
     function onTransfer(to: string, amount: number) {
-        console.log("Transfering money");
         try {
             transfer(player?.name, to, amount);
         } catch (error) {

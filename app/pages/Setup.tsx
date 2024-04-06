@@ -64,7 +64,7 @@ export default function Setup({ navigation }: { navigation: any }) {
                         players={players}
                         setPlayers={setPlayers}
                     />
-                    <Button
+                    {players.length > 1 && <Button
                         style={{
                             margin: 10,
                             height: 50,
@@ -74,16 +74,21 @@ export default function Setup({ navigation }: { navigation: any }) {
                         onPress={onConfirmPlayers}
                     >
                         Confirm
-                    </Button>
+                    </Button>}
                 </View>,
-                <SafeAreaView
-                    style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-                >
+                <SafeAreaView style={{
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: 10,
+                }}>
+                    <Text variant="headlineLarge">{preset?.name}</Text>
+
+                    <Text variant="titleLarge">Players: {players?.map(p => p.name).join(", ")}</Text>
+
                     <Button onPress={startGame} mode="contained">
                         Start Game
                     </Button>
-                    <Text>{JSON.stringify(preset)}</Text>
-                    <Text>{JSON.stringify(players)}</Text>
                 </SafeAreaView>,
             ][step]}
 

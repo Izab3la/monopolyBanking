@@ -65,6 +65,5 @@ export function getCardStacks(): CardStackI[] {
 }
 
 export function useCard(player: string, card: string) {
-    console.log(`Card "${card}" used`);
     store.dispatch(storeUseCard({ player, card }));
 }

@@ -1,13 +1,11 @@
 import * as React from "react";
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { Animated } from "react-native";
 import { Text, Card } from "react-native-paper";
 
 export default function ExpandableCard({ children, label, maxHeight = 500 }: { children: React.ReactNode, label: string, maxHeight?: number }) {
-    const [expanded, setExpanded] = useState(true);
+    const [expanded, setExpanded] = useState(false);
     const expandAnim = useRef(new Animated.Value(0)).current;
-
-    useEffect(() => { setExpanded(false); }, []);
 
     return (
         <Card style={{

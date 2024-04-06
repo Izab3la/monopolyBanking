@@ -73,7 +73,6 @@ export default function Presets({
                     >
                         <Card.Content>
                             <Text>{preset.name}</Text>
-                            <Text>{JSON.stringify(preset, null, 2)}</Text>
                         </Card.Content>
                     </Card>
                 )}

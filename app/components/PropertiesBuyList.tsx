@@ -14,7 +14,7 @@ export default function PropertiesBuyList({ properties, onPay }: { properties: P
             {properties.map((property) => (
                 <DataTable.Row key={property.name}>
                     <DataTable.Cell><Text textBreakStrategy="simple">{property.name}</Text></DataTable.Cell>
-                    <DataTable.Cell numeric>{formatCurrency(property.price)}</DataTable.Cell>
+                    <DataTable.Cell numeric><Text style={{ color: "red" }}>{formatCurrency(property.price)}</Text></DataTable.Cell>
                     <DataTable.Cell numeric>
                         <IconButton icon="cash-fast" onPress={() => onPay(property.name)} />
                     </DataTable.Cell>
