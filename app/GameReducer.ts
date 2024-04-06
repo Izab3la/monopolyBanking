@@ -21,7 +21,77 @@ type StateI = {
         };
     };
     players: PlayerI[];
-};
+}
+
+function transferFn(
+    { players }: StateI,
+    {
+        payload,
+    }: {
+        payload: {
+            from: string;
+            to: string;
+            amount: number;
+        };
+    },
+): void {
+    const payer = payload.from === "bank"
+        ? { name: "bank", balance: Number.MAX_SAFE_INTEGER }
+        : players.find((player: PlayerI) => player.name === payload.from);
+    if (!payer) {
+        throw new Error(`Player ${payload.from} does not exist`);
+    }
+
+    const recipient = payload.to === "bank"
+        ? { name: "bank", balance: 0 }
+        : players.find((player: PlayerI) => player.name === payload.to);
+    if (!recipient) {
+        throw new Error(`Player ${payload.to} does not exist`);
+    }
+
+    if (payer.balance < payload.amount) {
+        throw new Error(`Player ${payer.name} does not have enough money`);
+    }
+
+    payer.balance -= payload.amount;
+    recipient.balance += payload.amount;
+}
+function buyPropertyFn(state: StateI, { payload }: { payload: { player: string; property: string } }): void {
+    const player = state.players.find((p: PlayerI) => p.name === payload.player);
+    if (!player) {
+        throw new Error(`Player ${payload.player} does not exist`);
+    }
+
+    const propertyName = payload.property;
+    const property =
+        state.properties.middles.find((p) => p.name === propertyName)
+        || state.properties.duo.find((p) => p.name === propertyName)
+        || state.properties.specials.find((p) => p.name === propertyName)
+        || state.properties.districts.reduce((acc: undefined | PropertyI, d) => {
+            if (acc) {
+                return acc;
+            }
+            return d.members.find((p) => p.name === propertyName)
+        }, undefined);
+    if (!property) {
+        throw new Error(`Property ${propertyName} does not exist`);
+    }
+
+    try {
+        transferFn(
+            state,
+            {
+                payload: {
+                    from: player.name,
+                    to: "bank",
+                    amount: property.price
+                }
+            }
+        );
+    } catch (error) {
+        throw error
+    }
+}
 
 const gameSlice = createSlice({
     name: "players",
@@ -61,43 +131,12 @@ const gameSlice = createSlice({
                 players.push(player);
             }
         },
-        transfer: (
-            { players }: StateI,
-            {
-                payload,
-            }: {
-                payload: {
-                    from: string;
-                    to: string;
-                    amount: number;
-                };
-            },
-        ) => {
-            const payer = payload.from === "bank"
-                ? { name: "bank", balance: Number.MAX_SAFE_INTEGER }
-                : players.find((player: PlayerI) => player.name === payload.from);
-            if (!payer) {
-                throw new Error(`Player ${payload.from} does not exist`);
-            }
-
-            const recipient = payload.to === "bank"
-                ? { name: "bank", balance: 0 }
-                : players.find((player: PlayerI) => player.name === payload.to);
-            if (!recipient) {
-                throw new Error(`Player ${payload.to} does not exist`);
-            }
-
-            if (payer.balance < payload.amount) {
-                throw new Error(`Player ${payer.name} does not have enough money`);
-            }
-
-            payer.balance -= payload.amount;
-            recipient.balance += payload.amount;
-        },
+        transfer: transferFn,
+        buyProperty: buyPropertyFn,
     },
 });
 
-export const { addPlayers, transfer, usePreset } = gameSlice.actions;
+export const { addPlayers, transfer, usePreset, buyProperty } = gameSlice.actions;
 
 export const store = configureStore({
     reducer: gameSlice.reducer,

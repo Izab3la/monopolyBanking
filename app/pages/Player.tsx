@@ -6,12 +6,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, Card } from "react-native-paper";
 import { BackHandler } from "react-native";
 
-import { getPlayers, getMiddles, getDuo, getSpecials } from "../helpers";
+import { getPlayers, getMiddles, getDuo, getSpecials, buyProperty } from "../helpers";
 import { PlayerI, PropertyI } from "../data";
 import CustomTransaction from "../components/CustomTransaction";
 import PropertiesBuyList from "../components/PropertiesBuyList";
 
-function CustomCard({ properties, label }: { properties: PropertyI[], label: string }) {
+function CustomCard({ properties, label, onPay }: { properties: PropertyI[], label: string, onPay: (name: string) => void }) {
     const [expanded, setExpanded] = useState(true);
     const expandAnim = useRef(new Animated.Value(0)).current;
 
@@ -38,9 +38,7 @@ function CustomCard({ properties, label }: { properties: PropertyI[], label: str
                         overflow: "hidden",
                     }}
                 >
-                    <PropertiesBuyList properties={properties} onPay={() => {
-                        console.log("buy");
-                    }} />
+                    <PropertiesBuyList properties={properties} onPay={onPay} />
                 </Animated.View>
             </Card.Content>
         </Card>
@@ -70,6 +68,15 @@ export default function Player({
     const player = getPlayers().find(
         (player: PlayerI) => player.name === name,
     ) as PlayerI | undefined;
+
+    function onBuyProperty(name: string) {
+        console.log("Buying property", name);
+        try {
+            buyProperty(player?.name, name);
+        } catch (error) {
+            console.error("Error buying property", error)
+        }
+    }
 
     return (
         <SafeAreaView
@@ -109,9 +116,9 @@ export default function Player({
                     </View>
                 )}
 
-                <CustomCard label="Middles" properties={getMiddles()} />
-                <CustomCard label="Duo" properties={getDuo()} />
-                <CustomCard label="Specials" properties={getSpecials()} />
+                <CustomCard label="Middles" properties={getMiddles()} onPay={onBuyProperty} />
+                <CustomCard label="Duo" properties={getDuo()} onPay={onBuyProperty} />
+                <CustomCard label="Specials" properties={getSpecials()} onPay={onBuyProperty} />
             </ScrollView>
 
             <StatusBar style="auto" />

@@ -21,7 +21,11 @@ export default function CustomTransaction({ from }: { from: string }) {
         const am = Number(amount);
         if (!to || !am) return;
 
-        transfer(from, to, am);
+        try {
+            transfer(from, to, am);
+        } catch (error) {
+            console.error("Error sending transfer", error)
+        }
     }
 
     return (
