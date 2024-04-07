@@ -6,12 +6,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, Card } from "react-native-paper";
 import { BackHandler } from "react-native";
 
-import { getPlayers, getMiddles, getDuo, getSpecials, buyProperty, transfer, getDistricts, getNaming, formatCurrency, getCardStacks, useCard } from "../helpers";
+import { getPlayers, getMiddles, getDuo, getSpecials, buyProperty, transfer, getDistricts, getNaming, getCardStacks, useCard } from "../helpers";
 import { PlayerI } from "../data";
 import CustomTransaction from "../components/CustomTransaction";
 import PropertiesBuyList from "../components/PropertiesBuyList";
 import ExpandableCard from "../components/ExpandableCard";
 import TransferCardList from "../components/TransferCardList";
+import CurrencyFormatter from "../components/CurrencyFormatter";
 
 export default function Player({
     navigation,
@@ -90,7 +91,7 @@ export default function Player({
                 >
                     {player?.name}
                 </Text>
-                <Text variant="displayLarge">{formatCurrency(player?.balance)}</Text>
+                <Text variant="displayLarge"><CurrencyFormatter amount={player?.balance} /></Text>
             </View>
 
             <ScrollView style={{
