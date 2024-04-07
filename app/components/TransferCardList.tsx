@@ -14,7 +14,7 @@ export default function TransferCardList({ cards, onCardActionPress }: { cards: 
             {cards.map((card, key) => (
                 <DataTable.Row key={key}>
                     <DataTable.Cell><Text textBreakStrategy="simple">{card.name}</Text></DataTable.Cell>
-                    <DataTable.Cell numeric><Text style={{ color: ["bank", "all players"].includes(card.payer) ? "green" : "red" }}><CurrencyFormatter amount={card.amount} /></Text></DataTable.Cell>
+                    <DataTable.Cell numeric><CurrencyFormatter amount={card.amount} color={["bank", "all players"].includes(card.payer) ? "green" : "red"} /></DataTable.Cell>
                     <DataTable.Cell numeric>
                         <IconButton icon="cash-fast" onPress={() => onCardActionPress(card.name)} />
                     </DataTable.Cell>
