@@ -1,0 +1,423 @@
+{
+    "name": "Monopoly Classic",
+    "uri": "https://raw.githubusercontent.com/Izab3la/monopolyBanking/main/assets/variants/monopoly-classic.json",
+    "settings": {
+        "playersBalance": 1500,
+        "startBonus": 200
+    },
+    "naming": {
+        "districts": "Districts",
+        "members": "Streets",
+        "middles": "Railroads",
+        "duo": "Utilities",
+        "specials": "Taxes",
+        "currency": "MON"
+    },
+    "properties": {
+        "districts": [
+            {
+                "name": "Brown",
+                "color": "brown",
+                "members": [
+                    {
+                        "color": "brown",
+                        "name": "Mediterrean Avenue",
+                        "price": 60
+                    },
+                    {
+                        "color": "brown",
+                        "name": "Baltic Avenue",
+                        "price": 60
+                    }
+                ]
+            },
+            {
+                "name": "Blue",
+                "color": "blue",
+                "members": [
+                    {
+                        "color": "blue",
+                        "name": "Central Avenue",
+                        "price": 100
+                    },
+                    {
+                        "color": "blue",
+                        "name": "Vermont Avenue",
+                        "price": 100
+                    },
+                    {
+                        "color": "blue",
+                        "name": "Connecticut Avenue",
+                        "price": 120
+                    }
+                ]
+            },
+            {
+                "name": "Pink",
+                "color": "pink",
+                "members": [
+                    {
+                        "color": "pink",
+                        "name": "St. Charles Place",
+                        "price": 140
+                    },
+                    {
+                        "color": "pink",
+                        "name": "States Avenue",
+                        "price": 140
+                    },
+                    {
+                        "color": "pink",
+                        "name": "Virginia Avenue",
+                        "price": 160
+                    }
+                ]
+            },
+            {
+                "name": "Orange",
+                "color": "orange",
+                "members": [
+                    {
+                        "color": "orange",
+                        "name": "St. James Place",
+                        "price": 180
+                    },
+                    {
+                        "color": "orange",
+                        "name": "Tennessee Avenue",
+                        "price": 180
+                    },
+                    {
+                        "color": "orange",
+                        "name": "New York Avenue",
+                        "price": 200
+                    }
+                ]
+            },
+            {
+                "name": "Red",
+                "color": "red",
+                "members": [
+                    {
+                        "color": "red",
+                        "name": "Kentucky Avenue",
+                        "price": 220
+                    },
+                    {
+                        "color": "red",
+                        "name": "Indiana Avenue",
+                        "price": 220
+                    },
+                    {
+                        "color": "red",
+                        "name": "Illinois Avenue",
+                        "price": 240
+                    }
+                ]
+            },
+            {
+                "name": "Yellow",
+                "color": "yellow",
+                "members": [
+                    {
+                        "color": "yellow",
+                        "name": "Atlantic Avenue",
+                        "price": 260
+                    },
+                    {
+                        "color": "yellow",
+                        "name": "Ventnor Avenue",
+                        "price": 260
+                    },
+                    {
+                        "color": "yellow",
+                        "name": "Marvin Gardens",
+                        "price": 280
+                    }
+                ]
+            },
+            {
+                "name": "Green",
+                "color": "green",
+                "members": [
+                    {
+                        "color": "green",
+                        "name": "Pacific Avenue",
+                        "price": 300
+                    },
+                    {
+                        "color": "green",
+                        "name": "North Carolina Avenue",
+                        "price": 300
+                    },
+                    {
+                        "color": "green",
+                        "name": "Pennsylvania Avenue",
+                        "price": 320
+                    }
+                ]
+            },
+            {
+                "name": "Dark Blue",
+                "color": "dark blue",
+                "members": [
+                    {
+                        "color": "dark blue",
+                        "name": "Park Place",
+                        "price": 350
+                    },
+                    {
+                        "color": "dark blue",
+                        "name": "Boardwalk",
+                        "price": 400
+                    }
+                ]
+            }
+        ],
+        "middles": [
+            {
+                "color": "none",
+                "name": "Reading Railroad",
+                "price": 200
+            },
+            {
+                "color": "none",
+                "name": "Pennsylvania Railroad",
+                "price": 200
+            },
+            {
+                "color": "none",
+                "name": "B. & O. Railroad",
+                "price": 200
+            },
+            {
+                "color": "none",
+                "name": "Short Line",
+                "price": 200
+            }
+        ],
+        "duo": [
+            {
+                "color": "none",
+                "name": "Electric Company",
+                "price": 150
+            },
+            {
+                "color": "none",
+                "name": "Water Works",
+                "price": 150
+            }
+        ],
+        "specials": [
+            {
+                "color": "none",
+                "name": "Income Tax",
+                "price": 200
+            },
+            {
+                "color": "none",
+                "name": "Luxury Tax",
+                "price": 100
+            }
+        ]
+    },
+    "cardStacks": [
+        {
+            "name": "Community Chest",
+            "cards": [
+                {
+                    "name": "Bank error",
+                    "action": "transfer",
+                    "amount": 200,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "II in a beauty contest",
+                    "action": "transfer",
+                    "amount": 10,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Income tax refund",
+                    "action": "transfer",
+                    "amount": 20,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Inheritance",
+                    "action": "transfer",
+                    "amount": 100,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "X-mas fund",
+                    "action": "transfer",
+                    "amount": 100,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Services",
+                    "action": "transfer",
+                    "amount": 25,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Sale to stock",
+                    "action": "transfer",
+                    "amount": 45,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Grand Opera Opening",
+                    "action": "transfer",
+                    "amount": 50,
+                    "payer": "all players",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Life insurance",
+                    "action": "transfer",
+                    "amount": 100,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "School tax",
+                    "action": "transfer",
+                    "amount": 150,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Hospital fee",
+                    "action": "transfer",
+                    "amount": 100,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Doctor's fee",
+                    "action": "transfer",
+                    "amount": 50,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Street repairs",
+                    "action": "renovation",
+                    "small": 40,
+                    "big": 115
+                },
+                {
+                    "name": "Advance to Go",
+                    "action": "goto",
+                    "destination": "start",
+                    "startBonus": true
+                },
+                {
+                    "name": "Get out of jail, free",
+                    "action": "jail leave"
+                },
+                {
+                    "name": "Go to jail",
+                    "action": "jail goto"
+                }
+            ]
+        },
+        {
+            "name": "Czerwone",
+            "cards": [
+                {
+                    "name": "Building and loan matures",
+                    "action": "transfer",
+                    "amount": 150,
+                    "payer": "bank",
+                    "recipient": "player"
+                },
+                {
+                    "name": "Property repairs",
+                    "action": "renovation",
+                    "small": 25,
+                    "big": 100
+                },
+                {
+                    "name": "Poor tax",
+                    "action": "transfer",
+                    "amount": 15,
+                    "payer": "player",
+                    "recipient": "bank"
+                },
+                {
+                    "name": "Chairman of the board",
+                    "action": "transfer",
+                    "amount": 50,
+                    "payer": "player",
+                    "recipient": "all players"
+                },
+                {
+                    "name": "Get out of jail, free",
+                    "action": "jail leave"
+                },
+                {
+                    "name": "Go to jail",
+                    "action": "jail goto"
+                },
+                {
+                    "name": "Go back 3 spaces",
+                    "action": "move",
+                    "distance": -3,
+                    "startBonus": true
+                },
+                {
+                    "name": "Advance to Boardwalk",
+                    "action": "goto",
+                    "destination": "Boardwalk",
+                    "startBonus": true
+                },
+                {
+                    "name": "Advance to St. Charles Place",
+                    "action": "goto",
+                    "destination": "St. Charles Place",
+                    "startBonus": true
+                },
+                {
+                    "name": "Advance to GO",
+                    "action": "goto",
+                    "destination": "start",
+                    "startBonus": true
+                },
+                {
+                    "name": "Advance to Illinois Avenue",
+                    "action": "goto",
+                    "destination": "Illinois Avenue",
+                    "startBonus": true
+                },
+                {
+                    "name": "Go to Reading Railroad",
+                    "action": "goto",
+                    "destination": "Reading Railroad",
+                    "startBonus": true
+                },
+                {
+                    "name": "Go to nearest Railroad",
+                    "action": "custom",
+                    "destination": "middles",
+                    "startBonus": true
+                },
+                {
+                    "name": "Go to nearest Utility",
+                    "action": "custom",
+                    "destination": "duo",
+                    "startBonus": true
+                }
+            ]
+        }
+    ]
+}

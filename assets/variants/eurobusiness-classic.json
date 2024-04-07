@@ -338,22 +338,22 @@
                     "name": "Procenty",
                     "action": "transfer",
                     "amount": 100,
-                    "payer": "player",
-                    "recipient": "bank"
+                    "payer": "bank",
+                    "recipient": "player"
                 },
                 {
                     "name": "Odsetki",
                     "action": "transfer",
                     "amount": 300,
-                    "payer": "player",
-                    "recipient": "bank"
+                    "payer": "bank",
+                    "recipient": "player"
                 },
                 {
                     "name": "Rozwiązanie krzyżówki",
                     "action": "transfer",
                     "amount": 200,
-                    "payer": "player",
-                    "recipient": "bank"
+                    "payer": "bank",
+                    "recipient": "player"
                 },
                 {
                     "name": "Modernizacja",
